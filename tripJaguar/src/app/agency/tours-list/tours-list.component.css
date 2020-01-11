@@ -1,0 +1,11 @@
+.card {
+    border: none;
+    border-radius: 0px;
+  }
+  
+.card-body {
+    padding: 0.9rem;
+}
+.list-group-item{
+  border-radius: 0px;
+}

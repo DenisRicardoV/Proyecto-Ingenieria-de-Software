@@ -1,0 +1,57 @@
+<header >
+
+  <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 bg-white border-bottom box-shadow">
+      <h5 class="my-0 mr-md-auto font-weight-normal">
+        <a class="navbar-brand" [routerLink]="['/']">
+          <img src="https://static.tacdn.com/img2/langs/es_PE/branding/rebrand/TA_logo_primary.svg" width="200" height="50" class="d-inline-block align-top" alt="" alt="">
+        </a>
+      </h5>
+
+      <nav class="my-2 my-md-0 mr-md-3 nav">
+
+        <div *ngIf="user  && user.nombre">
+          <li class="nav-item dropdown" *ngIf="user.roles.agency">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{user.nombre}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" [routerLink]="['/agencia/tours/list']"><i class="fa fa-shopping-cart"></i> Mis Paquetes</a>
+              <a class="dropdown-item"  [routerLink]="['/agencia/tours/nuevo']"><i class="fa fa-pencil-square-o"></i> Nuevo Paquete</a>
+              <div class="dropdown-divider"></div>
+              <li class="dropdown-header">Cuenta</li>
+              <a class="dropdown-item" ><i class="fa fa-user"></i> Mi Perfil</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="salir()"><i class="fa fa-power-off"></i> Salir</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown" *ngIf="user.roles.tourist">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{user.nombre}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> Mis Reservas</a>
+              <div class="dropdown-divider"></div>
+              <li class="dropdown-header">Cuenta</li>
+              <a class="dropdown-item" ><i class="fa fa-user"></i> Mi Perfil</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" type="button" (click)="salir()"><i class="fa fa-power-off"></i> Salir</a>
+            </div>
+          </li>
+        </div>
+        <a class="p-2 text-dark" ></a>
+
+        <div *ngIf="!user">
+          <a class="p-2 text-dark"  [routerLink]="['/login']">
+            <span class="icon-1">
+              <fa name="user" ></fa>
+            </span>
+            Login
+         </a>
+          <a class="p-2 text-dark" [routerLink]="['/registrarse']" class="btn  mr-sm-2 button-2">Registrarse</a>
+        </div>
+
+      </nav>
+    </div>
+
+</header>
+

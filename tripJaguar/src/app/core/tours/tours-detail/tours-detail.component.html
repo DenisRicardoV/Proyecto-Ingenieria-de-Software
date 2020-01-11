@@ -1,0 +1,150 @@
+<div *ngIf="!tour$">
+  <app-not-found></app-not-found>
+</div>
+
+<div class="row  padding-body" *ngIf="tour$ | async as tour">
+
+  <div class="col-md-8 col-12 " >
+
+    <div class="col-12">
+      <div class="row">
+
+        <div class="col-lg-8 col-12">
+
+            <div id="carouselImages" class="carousel slide" data-ride="carousel" *ngIf="tour.imagenes.length>0">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+
+                  <div class="carousel-item"  [ngClass]="{ active:!$index }" *ngFor="let img of tour.imagenes">
+                    <img class="d-block w-100" src="img" alt="First slide">
+                  </div>
+
+                </div>
+                <a class="carousel-control-prev" data-target="#carouselImages"  role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" data-target="#carouselImages" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <div class="jumbotron jumbotron-fluid" id="jumbotron" *ngIf="tour.imagenes.length==0">
+              <div class="container">
+                <h1 class="display-4 text-center">No se Encontraron Imágenes</h1>
+              </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4 col-12">
+
+
+            <div class="card text-center" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+
+            <div class="card text-center" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+
+            <div class="card text-center" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+
+
+        </div>
+        <mat-list class="col-12">
+          <mat-list-item class="title-tour">{{tour.nombre}}</mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+
+      </div>
+    </div>
+
+    <div class="col-12 card">
+      <div class="card-body">
+        <mat-list-item class="col-12">{{tour.descripcion}}</mat-list-item>
+
+        <mat-list >
+            <mat-list-item>Itinerario</mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+
+        <mat-list *ngFor="let iti of tour.itinerarios">
+            <mat-list-item class="itinerario-title"> {{iti.nombre}} </mat-list-item>
+
+            <mat-list class="col-12" *ngFor="let des of iti.descripcion">
+                <i></i>
+                <mat-list-item>{{des}}</mat-list-item>
+            </mat-list>
+        </mat-list>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-4 col-12">
+
+    <div class="card-group">
+      <div class="card">
+          <div class="card-header " >
+              <h5 class="card-title title-reserva" >S. / {{tour.precio}} po persona</h5>
+          </div>
+        <div class="card-body">
+
+          <form  [formGroup]="reservaForm" (ngSubmit)="onSubmit()" >
+
+              <div class="example-container">
+
+                <mat-form-field class="example-full-width">
+                  <input formControlName="cantidad"   matInput placeholder="Cantidad de Pasajeros" type="number"  >
+                </mat-form-field>
+
+
+                <mat-form-field>
+                    <input formControlName="fecha"  matInput [matDatepicker]="picker" placeholder="Fecha de inicio del Tour" >
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-label class="text-center">
+                    <h3>Total: <p>S./{{reservaForm.value.cantidad *tour.precio}}</p> </h3>
+
+
+
+                </mat-label>
+              </div>
+
+              <button  class="btn btn-outline-success col-12 text-center" >Reservar</button>
+
+          </form>
+
+
+
+
+        </div>
+      </div>
+
+      </div>
+
+  </div>
+
+</div>

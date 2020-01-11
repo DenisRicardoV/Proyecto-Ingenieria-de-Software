@@ -1,0 +1,45 @@
+#carouselImages, #jumbotron{
+    height: 500px;
+}
+#carouselImages .carousel-inner,
+#carouselImages  .carousel-item,
+#carouselImages  .active,
+#carouselImages  .carousel-item,
+#carouselImages img{
+    height: 100%;
+}
+.itinerario-title{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.title-tour{
+    font-size: x-large;
+    color: coral;
+    font-weight: 700;
+
+}
+
+.card{
+    border: none;
+    margin-top: 10px;
+    border-radius: 0px;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+.card-header{
+    background-color: #092f58;
+    color: white;
+    text-align: center;
+}
+.title-reserva{
+    font-size: xx-large;
+    font-weight: bold;
+    margin: 0px;
+}

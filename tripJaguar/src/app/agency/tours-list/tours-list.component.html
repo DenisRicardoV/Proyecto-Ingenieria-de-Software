@@ -1,0 +1,54 @@
+<div class="card card-vista">
+
+    <div class="row card-body">
+        <p>FUNCIONA</p>
+    </div>
+
+</div>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-4" *ngFor="let tour of tours">
+
+          <div class="card mb-4 shadow-sm">
+            <img class="card-img-top" src="images/tours/HQhaGhwzVhUEXe2xGbzA-1545018436433.jpg" data-holder-rendered="true">
+            <div class="card-body">
+              <h5>{{ (tour.nombre.length>50)? (tour.nombre | slice:0:50)+'..':(tour.nombre) }}</h5>
+              <!-- <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div> -->
+
+              <ul class="list-group row">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Precio
+                    <span class="badge badge-primary badge-pill">{{tour.precio}}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Actividades:
+                    <span class="badge badge-primary badge-pill">{{tour.actividades.length}}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Comentarios
+                    <span class="badge badge-primary badge-pill">1</span>
+                  </li>
+              </ul>
+
+            </div>
+
+            <div>
+              
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>

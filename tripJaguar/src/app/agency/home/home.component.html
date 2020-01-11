@@ -1,0 +1,27 @@
+<div class="row ">
+
+  <div class="nav-scroller  shadow-sm" style="background-color: brown;">
+    <nav class="nav nav-underline">
+
+
+      <a class="nav-link" [routerLink]="['/agencia/tours/nuevo']" routerLinkActive="active">
+        <span>Agregar Nuevo Paquete  </span>
+
+      </a>
+      <a class="nav-link" [routerLink]="['/turista/tours/lista']" routerLinkActive="active">
+        <span>Paquetes Turisticos  </span>
+
+      </a>
+
+    </nav>
+  </div>
+  <div class="container-fluid ">
+    <div class="padding-body">
+      <router-outlet  ></router-outlet>
+    </div>
+
+
+  </div>
+
+</div>
+

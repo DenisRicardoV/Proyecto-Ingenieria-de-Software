@@ -1,0 +1,70 @@
+<div class="row">
+    <section class="jumbotron text-center ">
+      <div class="container">
+        <h1 class="jumbotron-heading">Album example</h1>
+        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">Main call to action</a>
+          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+        </p>
+      </div>
+    </section>
+    <div class="album py-5 " class="padding-body container-fluid">
+      <div>
+
+        <div class="row bloque departamentos">
+
+          <h2 class="text-center col-12 title">Departamentos</h2>
+
+
+          <div class="col-md-3" *ngFor="let item of departamentos; index as i;">
+            <div class="card mb-4 box-shadow">
+              <a  [routerLink]="['/']">
+                <img class="card-img-top"  style="height: 225px; width: 100%; display: block;" [src]="URL_PUBLIC+'images/departamentos/'+item.img" data-holder-rendered="true">
+
+                <div class="card-img-overlay">
+                  <h5 class="card-title">{{item.nombre}}</h5>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">{{item.numero_tours}} TOURS</button>
+                </div>
+              </a>
+              <!-- <div class="card-body">
+                <p class="card-text">{{item.nombre}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  </div>
+                  <small class="text-muted">9 mins</small>
+                </div>
+              </div> -->
+
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="album py-5 " class="padding-body container-fluid">
+      <div>
+
+        <div class="row bloque">
+
+          <h2 class="text-center col-12 title">Actividades</h2>
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+</div>
+
